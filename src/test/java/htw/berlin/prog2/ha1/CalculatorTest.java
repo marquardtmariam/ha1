@@ -107,7 +107,7 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should allow to continue a calculation after pressing C- ONCE")
+    @DisplayName("should allow to continue a calculation with saved values after pressing C- ONCE")
     void testClearOnce() {
         Calculator calc = new Calculator();
 
@@ -128,5 +128,19 @@ class CalculatorTest {
 
     }
 
+    @Test
+    @DisplayName("interim result is shown immediately after the operation was pressed")
+    void testOperationResult() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(15);
+        calc.pressBinaryOperationKey("/");
+        calc.pressDigitKey(5);
+
+        String expected = "3";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
