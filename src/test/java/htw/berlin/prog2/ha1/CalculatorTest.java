@@ -106,6 +106,27 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("should allow to continue a calculation after pressing C- ONCE")
+    void testClearOnce() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressClearKey();
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(6);
+        calc.pressEqualsKey();
+
+        String expected = "14";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+
+    }
 
 }
 
