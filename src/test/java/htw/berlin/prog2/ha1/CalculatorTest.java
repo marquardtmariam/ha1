@@ -129,18 +129,21 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("interim result is shown immediately after the operation was pressed")
+    @DisplayName("interim result is (not) shown immediately after the operation was pressed")
     void testOperationResult() {
         Calculator calc = new Calculator();
 
-        calc.pressDigitKey(15);
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(5);
         calc.pressBinaryOperationKey("/");
         calc.pressDigitKey(5);
+        calc.pressEqualsKey();
 
         String expected = "3";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
     }
+    //Test an geänderte Methode/JavaDoc angepasst
 }
 
