@@ -137,7 +137,7 @@ class CalculatorTest {
         calc.pressDigitKey(5);
         calc.pressBinaryOperationKey("/");
         calc.pressDigitKey(5);
-        calc.pressEqualsKey();
+        calc.pressEqualsKey();//hier der Fehler
 
         String expected = "3";
         String actual = calc.readScreen();
@@ -162,5 +162,6 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+    //Credits an Bjarne Cordes
 }
 
