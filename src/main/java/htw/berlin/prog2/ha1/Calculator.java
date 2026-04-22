@@ -14,6 +14,8 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private boolean operationJustPressed = false;
+
     /**
      * @return den aktuellen Bildschirminhalt als String
      */
@@ -31,7 +33,10 @@ public class Calculator {
     public void pressDigitKey(int digit) {
         if(digit > 9 || digit < 0) throw new IllegalArgumentException();
 
-        if(screen.equals("0") || latestValue == Double.parseDouble(screen)) screen = "";
+        if(screen.equals("0") || operationJustPressed){
+            screen= "";
+            operationJustPressed=false;
+        }
 
         screen = screen + digit;
     }
@@ -69,6 +74,7 @@ public class Calculator {
             latestValue = Double.parseDouble(screen);
         }
         latestOperation = operation;
+        operationJustPressed = true;
     }
 
     /**

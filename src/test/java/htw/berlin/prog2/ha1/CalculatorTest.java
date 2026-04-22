@@ -145,5 +145,22 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
     //Test an geänderte Methode/JavaDoc angepasst
+
+    @Test
+    @DisplayName("pressing the same number again should work")
+    void testDoubleNumber() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(2);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(3);
+        calc.pressEqualsKey();
+
+        String expected = "25";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
